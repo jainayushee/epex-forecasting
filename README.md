@@ -1,5 +1,7 @@
 # Project: European Power Exchange (EPEX) forecasting
 
+Github: https://github.com/jainayushee/epex-forecasting
+
 ## Overview
 
 The objective of this project is to forecast electricity market prices and volumes at a 15-minute interval on the European Power Exchange (EPEX), with a forecasting horizon of 10 time steps. The task involves providing predictions for all assets and their "High," "Low," "Close," and "Volume" at each time point, using pre-trained models or time series libraries, and evaluating performance using the Symmetric Mean Absolute Percentage Error (sMAPE).

@@ -23,7 +23,13 @@ Several methods were tested to optimize the memory usage and processing time. Ho
 
 To prevent data leakage, it is essential to split the data while preserving the temporal sequence in which the values were observed, rather than using a random split. Given the constraints, the training data was limited to nine months, the validation data covered three months in 2023, and the testing data is from 2024.
 
-2. Model Selection (multivariate time series data)
+2. Feature Engineering
+
+The initial plan for feature engineering was to use Autocorrelation Function (ACF) and Partial Autocorrelation Function (PACF) plots to determine the optimal number of lags. ACF and PACF plots are typically used to assess how past observations influence future values in a time series. ACF measures the overall correlation between the time series and its lagged versions, while PACF focuses on the direct influence of specific lags after accounting for the effects of intermediate lags. 
+
+However, due to the large volume of data, it wasn't feasible to generate these plots. As a result, a decision was made to use 10 lags, which seemed like a reasonable choice based on the problem statement.
+
+3. Model Selection (multivariate time series data)
 
 LSTM (Long Short-Term Memory) models are specialized for handling sequential data, particularly univariate time series where each data point represents a single variable over time. In the context of financial assets, each asset exhibits unique temporal patterns and statistical properties. Therefore, to accurately capture these individual dynamics, LSTM models need to be trained separately for each asset. Training a single LSTM model on combined data from multiple assets can lead to confusion within the model, as it may struggle to differentiate and learn the distinct patterns of each asset, resulting in diminished predictive performance.
 
